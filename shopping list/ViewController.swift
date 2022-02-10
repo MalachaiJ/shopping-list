@@ -15,7 +15,14 @@ class ViewController: UIViewController, UITableViewDataSource
         
     }
     
-    @IBOutlet weak var newItemTextfield: UINavigationItem!
+    @IBOutlet weak var quantityTextField: UITextField!
+    
+    @IBAction func detailTextLabel(_ sender: Any)
+    {
+    }
+    
+    @IBOutlet weak var textField: UITextField!
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         
@@ -23,6 +30,7 @@ class ViewController: UIViewController, UITableViewDataSource
         
         let currentItem = items[indexPath.row]
         cell.textLabel?.text = currentItem.name
+        cell.detailTextLabel?.text = "Quantity: \(currentItem.quantity)"
         return cell
     }
     
@@ -31,11 +39,19 @@ class ViewController: UIViewController, UITableViewDataSource
 
     @IBAction func whenAddItemButtonPressed(_ sender: Any)
     {
-        if let newItemName = newItemTextfield.text
+        var newItemQuantityString = quantityTextField.text ?? ""
+        
+        var newItemQuantityInt = Int(newItemQuantityString)
+    
+        if let newItemName = textField.text
         {
-        let newItem = Item(name: newItemName)
+            if let newItemQuantity = newItemQuantityInt
+            {
+            
+        let newItem = Item(name: newItemName, quantity: newItemQuantity)
         items.append(newItem)
         tableView.reloadData()
+            }
         }
         }
     
@@ -43,8 +59,8 @@ class ViewController: UIViewController, UITableViewDataSource
     override func viewDidLoad()
     {
         
-        let item1 = Item(name: "Milk")
-        let item2 = Item(name: "Eggs")
+        let item1 = Item(name: "Milk" , quantity: 2)
+        let item2 = Item(name: "Eggs", quantity: 17)
         items = [item1, item2]
         tableView.dataSource = self
         super.viewDidLoad()
