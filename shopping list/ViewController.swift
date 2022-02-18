@@ -67,7 +67,21 @@ class ViewController: UIViewController, UITableViewDataSource
         
         // Do any additional setup after loading the view.
     }
-
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let nextViewController = segue.destination as! NewViewController
+    if let indexPath = tableView.indexPathForSelectedRow {
+    let item = items[indexPath.row]
+    let vc = segue.destination as! NewViewController
+    vc.item = item
+        if segue.identifier == "SegueOne"
+        {
+            nextViewController.labelOne = item.name
+            print(item.name)
+            nextViewController.number = item.quantity
+        }
+        
 }
 
+    }
+    
+}

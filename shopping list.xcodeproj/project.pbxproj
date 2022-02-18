@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C5F440E27B6E8DD00BC066F /* NewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5F440D27B6E8DD00BC066F /* NewViewController.swift */; };
 		7CDA03F9278CAA250036FF08 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDA03F8278CAA250036FF08 /* AppDelegate.swift */; };
 		7CDA03FB278CAA250036FF08 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDA03FA278CAA250036FF08 /* SceneDelegate.swift */; };
 		7CDA03FD278CAA250036FF08 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDA03FC278CAA250036FF08 /* ViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7C5F440D27B6E8DD00BC066F /* NewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewViewController.swift; sourceTree = "<group>"; };
 		7CDA03F5278CAA250036FF08 /* shopping list.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "shopping list.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CDA03F8278CAA250036FF08 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7CDA03FA278CAA250036FF08 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				7CDA03FC278CAA250036FF08 /* ViewController.swift */,
 				7CDA040C278CAFD20036FF08 /* Item.swift */,
 				7CDA03FE278CAA250036FF08 /* Main.storyboard */,
+				7C5F440D27B6E8DD00BC066F /* NewViewController.swift */,
 				7CDA0401278CAA2A0036FF08 /* Assets.xcassets */,
 				7CDA0403278CAA2A0036FF08 /* LaunchScreen.storyboard */,
 				7CDA0406278CAA2A0036FF08 /* Info.plist */,
@@ -143,6 +146,7 @@
 			files = (
 				7CDA040D278CAFD20036FF08 /* Item.swift in Sources */,
 				7CDA03FD278CAA250036FF08 /* ViewController.swift in Sources */,
+				7C5F440E27B6E8DD00BC066F /* NewViewController.swift in Sources */,
 				7CDA03F9278CAA250036FF08 /* AppDelegate.swift in Sources */,
 				7CDA03FB278CAA250036FF08 /* SceneDelegate.swift in Sources */,
 			);
