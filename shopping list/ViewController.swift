@@ -1,4 +1,4 @@
-//
+
 //  ViewController.swift
 //  shopping list
 //
@@ -9,6 +9,9 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource
 {
+    var items : [Item] = [ ]
+    var itemNames:[String] = [ ]
+    var itemQuantity:[Int] = [ ]
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
@@ -17,6 +20,15 @@ class ViewController: UIViewController, UITableViewDataSource
     
     @IBOutlet weak var quantityTextField: UITextField!
     
+    //save button
+    @IBAction func saveButton(_ sender: Any)
+    {
+        let defaults = UserDefaults.standard
+        defaults.set(itemNames, forKey: "ArrayOfItemNames")
+        defaults.set(itemQuantity, forKey: "ArrayOfItemQuantities")
+       // print(defaults)
+       
+    }
     @IBAction func detailTextLabel(_ sender: Any)
     {
     }
@@ -34,7 +46,7 @@ class ViewController: UIViewController, UITableViewDataSource
         return cell
     }
     
-    var items : [Item] = [ ]
+
 
 
     @IBAction func whenAddItemButtonPressed(_ sender: Any)
@@ -50,7 +62,12 @@ class ViewController: UIViewController, UITableViewDataSource
             
         let newItem = Item(name: newItemName, quantity: newItemQuantity)
         items.append(newItem)
+                
         tableView.reloadData()
+                
+                print(newItemName)
+                itemNames.append(newItemName)
+                itemQuantity.append(newItemQuantity)
             }
         }
         }
@@ -59,13 +76,19 @@ class ViewController: UIViewController, UITableViewDataSource
     override func viewDidLoad()
     {
         
-        let item1 = Item(name: "Milk" , quantity: 2)
-        let item2 = Item(name: "Eggs", quantity: 17)
-        items = [item1, item2]
-        tableView.dataSource = self
         super.viewDidLoad()
-        
         // Do any additional setup after loading the view.
+        tableView.dataSource = self
+        let defaults = UserDefaults.standard
+        if let itemName = defaults.array(forKey: "ArrayOfItemNames"),let itemQuantities = defaults.array(forKey: "ArrayOfItemQuantities")  {
+             itemNames = itemName as! [String]
+            itemQuantity = itemQuantities as! [Int]
+           
+        }
+//        let item1 = Item(name: "Milk" , quantity: 2)
+//        let item2 = Item(name: "Eggs", quantity: 17)
+//        items = [item1, item2]
+        
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let nextViewController = segue.destination as! NewViewController
@@ -73,15 +96,15 @@ class ViewController: UIViewController, UITableViewDataSource
     let item = items[indexPath.row]
     let vc = segue.destination as! NewViewController
     vc.item = item
+        
         if segue.identifier == "SegueOne"
         {
             nextViewController.labelOne = item.name
-            print(item.name)
+           
             nextViewController.number = item.quantity
         }
         
 }
 
     }
-    
 }
